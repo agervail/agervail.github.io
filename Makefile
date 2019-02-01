@@ -12,3 +12,6 @@ run-debug-server:
 
 stop-image:
 	docker stop $(CONTAINER_NAME)
+
+remove-image:
+	docker rm $(IMAGE_NAME)
