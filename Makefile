@@ -5,7 +5,7 @@ build-image:
 	docker build -t $(IMAGE_NAME) .
 
 start-image:
-	docker run -d -t -p 1313:1313 -v $(CURDIR)/blog_sogilis:/blog --name $(CONTAINER_NAME) $(IMAGE_NAME)
+	docker run -d -t -p 1313:1313 -v $(CURDIR)/blog_sogilis:/blog --rm --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
 run-debug-server:
 	docker exec -it $(CONTAINER_NAME) hugo server -D -b http://localhost:1313 --bind=0.0.0.0
