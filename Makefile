@@ -10,6 +10,9 @@ start-image:
 run-debug-server:
 	docker exec -it $(CONTAINER_NAME) hugo server -D -b http://localhost:1313 --bind=0.0.0.0
 
+run-generation:
+	docker exec -it $(CONTAINER_NAME) hugo
+
 stop-image:
 	docker stop $(CONTAINER_NAME)
 
