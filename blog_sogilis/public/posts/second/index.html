@@ -74,20 +74,20 @@
   </header>
   <div class="delimiter"></div>
   <section>
-    <div class="sect1">
-<h2 id="_uh">UH</h2>
-<div class="sectionbody">
-<div class="paragraph">
+    <div class="paragraph">
 <p>Les patterns <a href="https://martinfowler.com/bliki/ObjectMother.html">Object Mother</a> et <a href="https://en.wikipedia.org/wiki/Builder_pattern">Builder</a> apportent chacun leur lot d’avantages à nos tests automatisés, mais peuvent aussi être combinés pour aller plus loin dans la lisibilité et la maintenabilité de nos tests. Nous verrons dans cet article comment il est possible de réaliser cela.</p>
 </div>
-<div class="sect2">
-<h3 id="pre-requis">Pre-requis</h3>
+<div class="sect1">
+<h2 id="_pre_requis">Pre-requis</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Si vous n’êtes pas familiers avec les patterns <a href="https://martinfowler.com/bliki/ObjectMother.html">Object Mother</a> et <a href="https://en.wikipedia.org/wiki/Builder_pattern">Builder</a>, je vous conseille d’approfondir ce sujet avant de continuer.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="le-principe">Le principe</h3>
+</div>
+<div class="sect1">
+<h2 id="_le_principe">Le principe</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Object Mother permet de fournir des objets pré-configurés pour nos tests :</p>
 </div>
@@ -129,8 +129,10 @@ public static HeroBuilder merlin() {
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="avantages">Avantages</h3>
+</div>
+<div class="sect1">
+<h2 id="_avantages">Avantages</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>(1)</strong> Le pattern Object Mother permet d’améliorer la lisibilité des tests en retirant les constantes inutiles à la compréhension du test. Exemple :</p>
 </div>
@@ -167,8 +169,10 @@ void with_mother_object() {
 <p><strong>(3)</strong> L’utilisation de builders permet de customiser les objets générés par les Object Mother pour le besoin du test (<code>HeroMother.one().dateOfBirth(&#8230;&#8203;).build()</code>). Sans cela, il faudrait multiplier les factories pour chaque besoin avec une méthode prenant en paramètre toutes les informations nécessaires au cas testé. On peut imaginer que cela nécessiterait une factory par test.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="inconvénients-et-difficultés">Inconvénients et difficultés</h3>
+</div>
+<div class="sect1">
+<h2 id="_inconvénients_et_difficultés">Inconvénients et difficultés</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>(1)</strong> Il y a plus de code, essentiellement à cause des builders, et du code pas intéressant à produire qui plus est.</p>
 </div>
@@ -189,14 +193,18 @@ HeroMother.one().caste(KING).build()</pre>
 <p><strong>(3)</strong> <code>.build()</code> est nécessaire partout pour générer l&#8217;objet final (pollution cognitive).<br></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="ce-quil-faut-retenir">Ce qu’il faut retenir</h3>
+</div>
+<div class="sect1">
+<h2 id="_ce_quil_faut_retenir">Ce qu’il faut retenir</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Combiné à des assertions custom <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a>, on arrive, avec cette technique, à des tests concis, qui restent lisibles et maintenables, même si on sent qu&#8217;il serait possible de faire mieux avec un langage plus évolué que <strong>Java</strong>, ce que nous verrons dans un prochain article avec <a href="http://kotlinlang.org/">Kotlin</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="notes">Notes</h3>
+</div>
+<div class="sect1">
+<h2 id="_notes">Notes</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -206,7 +214,6 @@ HeroMother.one().caste(KING).build()</pre>
 <p>Le projet dont sont issus les extraits les extraits de code est disponible <a href="https://github.com/sogilis/motherobject-builder-java-example">sur Github</a>.</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>

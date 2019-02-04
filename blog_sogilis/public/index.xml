@@ -26,9 +26,9 @@
       <pubDate>Fri, 01 Feb 2019 19:44:22 +0100</pubDate>
       
       <guid>https://agervail.github.io/blog_sogilis/public/posts/second/</guid>
-      <description>UH Les patterns Object Mother et Builder apportent chacun leur lot d’avantages à nos tests automatisés, mais peuvent aussi être combinés pour aller plus loin dans la lisibilité et la maintenabilité de nos tests. Nous verrons dans cet article comment il est possible de réaliser cela.
+      <description>Les patterns Object Mother et Builder apportent chacun leur lot d’avantages à nos tests automatisés, mais peuvent aussi être combinés pour aller plus loin dans la lisibilité et la maintenabilité de nos tests. Nous verrons dans cet article comment il est possible de réaliser cela.
  Pre-requis Si vous n’êtes pas familiers avec les patterns Object Mother et Builder, je vous conseille d’approfondir ce sujet avant de continuer.
-  Le principe Object Mother permet de fournir des objets pré-configurés pour nos tests :</description>
+   Le principe Object Mother permet de fournir des objets pré-configurés pour nos tests :</description>
     </item>
     
   </channel>

@@ -3,19 +3,13 @@ title: "Second"
 date: 2019-02-01T19:44:22+01:00
 ---
 
-== UH
-
 Les patterns https://martinfowler.com/bliki/ObjectMother.html[Object Mother] et https://en.wikipedia.org/wiki/Builder_pattern[Builder] apportent chacun leur lot d’avantages à nos tests automatisés, mais peuvent aussi être combinés pour aller plus loin dans la lisibilité et la maintenabilité de nos tests. Nous verrons dans cet article comment il est possible de réaliser cela.
 
-[[pre-requis]]
-Pre-requis
-~~~~~~~~~~~
+== Pre-requis
 
 Si vous n’êtes pas familiers avec les patterns https://martinfowler.com/bliki/ObjectMother.html[Object Mother] et https://en.wikipedia.org/wiki/Builder_pattern[Builder], je vous conseille d’approfondir ce sujet avant de continuer.
 
-[[le-principe]]
-Le principe
-~~~~~~~~~~~
+== Le principe
 
 Object Mother permet de fournir des objets pré-configurés pour nos tests :
 
@@ -45,9 +39,7 @@ Le principe est le suivant :
 * Toutes les autres factories utilisent cette factory de base.
 * Dans cette versions, les Object Mother retournent des builders et non des instances.
 
-[[avantages]]
-Avantages
-~~~~~~~~~
+== Avantages
 
 *(1)* Le pattern Object Mother permet d’améliorer la lisibilité des tests en retirant les constantes inutiles à la compréhension du test. Exemple :
 
@@ -79,9 +71,7 @@ L’exemple ici est plutôt trivial, mais imaginez cela dans une vraie applicati
 
 *(3)* L’utilisation de builders permet de customiser les objets générés par les Object Mother pour le besoin du test (`HeroMother.one().dateOfBirth(...).build()`). Sans cela, il faudrait multiplier les factories pour chaque besoin avec une méthode prenant en paramètre toutes les informations nécessaires au cas testé. On peut imaginer que cela nécessiterait une factory par test.
 
-[[inconvénients-et-difficultés]]
-Inconvénients et difficultés
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Inconvénients et difficultés
 
 *(1)* Il y a plus de code, essentiellement à cause des builders, et du code pas intéressant à produire qui plus est.
 
@@ -97,15 +87,11 @@ HeroMother.one().caste(KING).build()
 
 *(3)* `.build()` est nécessaire partout pour générer l'objet final (pollution cognitive). +
 
-[[ce-quil-faut-retenir]]
-Ce qu’il faut retenir
-~~~~~~~~~~~~~~~~~~~~~
+== Ce qu’il faut retenir
 
 Combiné à des assertions custom http://joel-costigliola.github.io/assertj/[AssertJ], on arrive, avec cette technique, à des tests concis, qui restent lisibles et maintenables, même si on sent qu'il serait possible de faire mieux avec un langage plus évolué que *Java*, ce que nous verrons dans un prochain article avec http://kotlinlang.org/[Kotlin].
 
-[[notes]]
-Notes
-~~~~~
+== Notes
 
 * Ce principe est très largement inspiré par un http://blog.codeleak.pl/2014/06/test-data-builders-and-object-mother.html[article de Rafał Borowiec].
 * Le projet dont sont issus les extraits les extraits de code est disponible https://github.com/sogilis/motherobject-builder-java-example[sur Github].

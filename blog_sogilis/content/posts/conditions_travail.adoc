@@ -4,18 +4,14 @@ date: 2019-02-01T19:44:22+01:00
 ---
 Nous avons réalisé une étude auprès des professionnels du design d’interfaces numériques travaillant pour les clients externes. Nous nous sommes intéressées plus particulièrement aux prestations proposées et aux manières de travailler selon le profil (ergo, ux, ui...). Malgré une centaine de réponses à certaines questions, il est impossible de généraliser les résultats à l’ensemble de la population des professionnels du design d’IHM travaillant pour des clients externes en France. Néanmoins, des tendances peuvent être observées et certaines d’entre elles nous ont d’ailleurs surpris.
 
-[[profils-des-répondants]]
-Profils des répondants
-~~~~~~~~~~~
+== Profils des répondants
 
 La majorité des répondants sont des salariés d’ESN (Entreprises de Services du Numérique) travaillant en Ile de France. Leur background est soit design soit ergo/psycho/sciences-co (nous avons fusionné ces différentes réponses qui nous semblaient appartenir au même grand domaine). Nous avons été étonnées que les 3/4 des répondants aient moins de 10 ans d’expérience. Est-ce qu’ils sont sur-représentés sur les canaux de communication utilisés pour partager l’étude (Twitter, la liste ergo-IHM et le Slack Flupa) ? Est-ce dû à l’engouement pour ce domaine ces dernières années ?
 
 .À la question, “Combien d’années d’expérience avez-vous”, 1/4 des répondants déclare avoir plus de 10 ans d'expérience (101 réponses).
 image::http://sogilis.com/wp-content/uploads/2018/06/combien-dannées-dexpérience-avez-vous-3.png[experience, 436, align="center"]
 
-[[prestations]]
-Prestations
------------
+== Prestations
 
 Sans surprise, le terme UX est très utilisé lorsque l’on demande comment se présente les professionnels d’interfaces numériques.
 
@@ -33,9 +29,7 @@ _ _
 
 Même si les maquettes sont globalement ce qui se vend le plus, ce ne sont pas les seules prestations vendues régulièrement. Contrairement à ce que l’on pourrait craindre, le temps de gestion de projet est souvent facturé par les professionnels du design. En particulier les analyses expertes et les tests utilisateurs semblent vendus très régulièrement par 4 répondants sur 5. En revanche, seulement 1/5 vend régulièrement des focus group. Dans notre quotidien, c’est plutôt l’inverse que nous observons : nos clients sont plus enclins à acheter un atelier focus group qu’une analyse experte, car ils y voient plus de valeur et un livrable plus concret.
 
-[[conditions-de-travail]]
-Conditions de travail
----------------------
+== Conditions de travail
 
 Cette partie du questionnaire nous a permis de valider une intuition : ces métiers sont fortement représentés dans les ESN. Par ailleurs, nous ne nous attendions pas à ce que les salariés des ESN travaillent majoritairement dans leur entreprise et non chez le client.
 
@@ -49,9 +43,7 @@ De même, nous avons pu observer que 40% des répondants déclarent travailler s
 .40% des répondants déclarent travailler seuls (47 réponses).
 image::http://sogilis.com/wp-content/uploads/2018/06/Avec-qui-travaillez-vous-majoritairement.png[qui, 534, align="center"]
 
-[[facturation]]
-Facturation
------------
+== Facturation
 
 Cette quatrième partie aborde le sujet de la facturation. Les répondants ont déclaré facturer principalement aux jours réellement travaillés.
 
@@ -65,11 +57,7 @@ Nous avons mesuré précédemment dans l’étude que les prestations les plus v
 .La moitié des répondants facture moins de 4 jours par semaine (44 réponses).
 image::http://sogilis.com/wp-content/uploads/2018/06/quel-pourcentage-de-temps-facturez-vous-aux-clients.png[pource, 607, align="center"]
 
-_ _
-
-[[tarifs]]
-Tarifs
-------
+== Tarifs
 
 Enfin, nous avons interrogé les professionnels du design d’interfaces numériques sur leur taux journalier moyen (TJM, tous indiqués hors taxe). En moyenne, ce TJM est de 612€ HT (en excluant les réponses de travailleurs hors France dont les TJM étaient très différents : 1500€/jour pour les 2 personnes en Suisse, 260€/jour pour la personne au Canada, et 800€/jour pour la personne en Equateur). Néanmoins, lors de notre étude 60% des personnes ont indiqué pratiquer un TJM variable selon le type de prestation : en moyenne entre 533 et 851€/jour selon la prestation réalisée. Nous avons ensuite essayé de croiser plusieurs paramètres afin d’identifier si le TJM était dépendant de certains critères. Le nombre limité de réponses sur la question des tarifs (42 réponses) n’a pas permis d’identifier des différences statistiquement significatives¹ entre les groupes, sauf pour un cas : les UX-designer facturent significativement plus cher que les UI/UX designer (en moyenne 50€/jour). Une hypothèse permettant d’expliquer cette observation est que la spécialisation (UX vs UX-UI) est une marque d’expertise qui permet de justifier un tarif plus élevé. Quoi qu’il en soit, le marché semble conscient de la valeur de l’UX-design puisque les clients sont prêts à payer autour de 600€/jour HT. Étude dans l’étude, nous observons sans grande surprise que beaucoup de personnes refusent de communiquer sur leurs tarifs. En effet, la question du TJM pratiqué a été celle recueillant le moins de réponses : seulement 46 réponses sur 104, soit moins d’une personne sur deux. Est-ce que tout ce qui se rapporte à l’argent reste encore très tabou en France ?
 
