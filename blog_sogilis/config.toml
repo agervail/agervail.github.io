@@ -1,4 +1,4 @@
-baseURL = "https://agervail.github.io/blog_sogilis/public"
+baseURL = "https://agervail.github.io/blog_sogilis/public/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "hamburg"
