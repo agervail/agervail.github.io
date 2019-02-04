@@ -24,6 +24,11 @@ make run-debug-server
 Once you have done that you can modify your articles in ***content/posts*** and it'll automaticaly be updated on the local server :
 http://localhost:1313
 
+And then if you're satisfied with your beautiful article you can generate the static site with that command :
+```
+make run-generate
+```
+
 If you want to exit the docker you can run
 ```
 make stop-image
