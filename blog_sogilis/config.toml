@@ -1,5 +1,5 @@
 baseURL = "https://agervail.github.io/blog_sogilis/public"
 languageCode = "en-us"
 title = "My New Hugo Site"
-theme = "ananke"
+theme = "hamburg"
 disqusShortname = "trololu"
