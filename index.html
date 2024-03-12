@@ -60,20 +60,33 @@
         ctx.fill();
     }
 
-    // Process and draw rectangles function
     function processAltAz() {
         const lines = horizonDataInput.value.trim().split('\n');
-        // ctx.scale(0.5)
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'rgba(255, 255, 255, 0)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        function createAzElObject(line) {
-            const [az, el] = line.split(',');
-            return {Az: parseFloat(az.trim()), El: parseFloat(el.trim())};
+        function findAzElIndices(first_line) {
+            const fieldMap = {};
+            for (let i = 0; i < first_line.length; i++) {
+                fieldMap[first_line[i].trim()] = i;
+            }
+            console.log(fieldMap)
+            const azIndex = fieldMap["Az"] !== undefined ? fieldMap["Az"] : -1;
+            const elIndex = fieldMap["El"] !== undefined ? fieldMap["El"] : -1;
+            return [azIndex, elIndex];
+        }
+        const [azIndex, elIndex] = findAzElIndices(lines[0].split(','));
+        console.log(azIndex, elIndex)
+
+        function createAzElObject(line, az_index, el_index) {
+            const split_l = line.split(',');
+            return {Az: parseFloat(split_l[az_index].trim() + 180 % 360), El: parseFloat(split_l[el_index].trim())};
         }
 
-        const azElObjects = lines.slice(1).map(createAzElObject);
+        const azElObjects = lines.slice(1).map(function(line) {
+            return createAzElObject(line, azIndex, elIndex);
+        });
         azElObjects.sort((a, b) => a.Az > b.Az);
         drawAzEl(azElObjects);
     }
@@ -81,7 +94,7 @@
     function saveImage() {
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
-        link.download = 'rectangles.png';
+        link.download = 'A_custom_horizon.png';
         link.click();
     }
 
