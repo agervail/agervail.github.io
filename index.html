@@ -15,6 +15,11 @@
 <br>
 <canvas id="myCanvas" width="2048" height="1024" hidden></canvas>
 <canvas id="previewCanvas" width="512" height="256"></canvas>
+<div>
+    Help : Once you have the horizon data, paste it in the text area and click on the Preview button to see the horizon.
+    If you are happy with the preview, click on the Save as PNG button to save the horizon as a PNG file.
+
+</div>
 <script>
     const canvas = document.getElementById('myCanvas');
     const previewCanvas = document.getElementById('previewCanvas');
@@ -76,6 +81,7 @@
             const elIndex = fieldMap["El"] !== undefined ? fieldMap["El"] : -1;
             return [azIndex, elIndex];
         }
+
         const [azIndex, elIndex] = findAzElIndices(lines[0].split(','));
         console.log(azIndex, elIndex)
 
@@ -84,22 +90,29 @@
             return {Az: parseFloat(split_l[az_index].trim() + 180 % 360), El: parseFloat(split_l[el_index].trim())};
         }
 
-        const azElObjects = lines.slice(1).map(function(line) {
+        const azElObjects = lines.slice(1).map(function (line) {
             return createAzElObject(line, azIndex, elIndex);
         });
         azElObjects.sort((a, b) => a.Az > b.Az);
         drawAzEl(azElObjects);
     }
 
-    function saveImage() {
+    //function saveImage() {
+    //    const link = document.createElement('a');
+    //    link.href = canvas.toDataURL('image/png');
+    //    link.download = 'A_custom_horizon.png';
+    //    link.click();
+    //}
+    function showSaveImageOption() {
+        const imageURL = canvas.toDataURL('image/png');
         const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png');
+        link.href = imageURL;
         link.download = 'A_custom_horizon.png';
         link.click();
     }
 
     saveButton.addEventListener('click', () => {
-        saveImage();
+        showSaveImageOption();
     });
     previewButton.addEventListener('click', () => {
         processAltAz();
