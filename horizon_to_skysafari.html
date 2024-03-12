@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw and Save Rectangles</title>
+</head>
+<body style="background-color:#222222;font-family: 'Lucida Console', 'Courier New', monospace;text-align:center">
+<label for="horizonData" style="color: white">Paste the output of horizon data</label>
+<br>
+<textarea id="horizonData" rows="20" cols="15" placeholder="Az, El&#10;x, y"></textarea>
+<br>
+<button id="saveButton">Save as PNG</button>
+<button id="previewButton">Preview</button>
+<br>
+<canvas id="myCanvas" width="2048" height="1024" hidden></canvas>
+<canvas id="previewCanvas" width="512" height="256"></canvas>
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const previewCanvas = document.getElementById('previewCanvas');
+    const ctx = canvas.getContext('2d');
+    const previewCtx = previewCanvas.getContext('2d');
+    const saveButton = document.getElementById('saveButton');
+    const previewButton = document.getElementById('previewButton');
+    const horizonDataInput = document.getElementById('horizonData');
+
+    function convertAz(az) {
+        return (az / 360) * canvas.width;
+    }
+
+    function convertEl(el) {
+        return (1 - el / 90) * canvas.height / 2;
+    }
+
+    function computeLineSegmentIntersection(x1, y1, x2, y2) {
+        const m1 = (y2 - y1) / (x2 - canvas.width - x1);
+        return y1 - m1 * x1;
+    }
+
+    // Draw rectangle function
+    function drawAzEl(azElObjects) {
+        ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+        ctx.beginPath();
+        const first_y = computeLineSegmentIntersection(
+            convertAz(azElObjects[0].Az),
+            convertEl(azElObjects[0].El),
+            convertAz(azElObjects[azElObjects.length - 1].Az),
+            convertEl(azElObjects[azElObjects.length - 1].El));
+        ctx.lineTo(0, canvas.height);
+        ctx.lineTo(0, first_y);
+        console.log(first_y);
+        for (const azEl of azElObjects) {
+            const x = convertAz(azEl.Az);
+            const y = convertEl(azEl.El);
+            ctx.lineTo(x, y);
+            console.log(azEl, x, y);
+        }
+        ctx.lineTo(canvas.width, first_y);
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.fill();
+    }
+
+    // Process and draw rectangles function
+    function processAltAz() {
+        const lines = horizonDataInput.value.trim().split('\n');
+        // ctx.scale(0.5)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        function createAzElObject(line) {
+            const [az, el] = line.split(',');
+            return {Az: parseFloat(az.trim()), El: parseFloat(el.trim())};
+        }
+
+        const azElObjects = lines.slice(1).map(createAzElObject);
+        azElObjects.sort((a, b) => a.Az > b.Az);
+        drawAzEl(azElObjects);
+    }
+
+    function saveImage() {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'rectangles.png';
+        link.click();
+    }
+
+    saveButton.addEventListener('click', () => {
+        saveImage();
+    });
+    previewButton.addEventListener('click', () => {
+        processAltAz();
+        previewCtx.fillStyle = 'rgba(255, 255, 255, 1)';
+        previewCtx.fillRect(0, 0, canvas.width, canvas.height);
+        previewCtx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, previewCanvas.width, previewCanvas.height);
+    });
+</script>
+</body>
+</html>
